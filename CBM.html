@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CBM Calculator</title>
+    <style>
+        .cbm-calculator {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .cbm-calculator input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .cbm-calculator button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cbm-calculator button:hover {
+            background-color: #005a9e;
+        }
+        .cbm-calculator .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #0078d4;
+        }
+    </style>
+</head>
+<body>
+    <div class="cbm-calculator">
+        <h2>CBM Calculator</h2>
+        <label for="length">Length (meters):</label>
+        <input type="number" id="length" placeholder="Enter length" step="any">
+        <label for="width">Width (meters):</label>
+        <input type="number" id="width" placeholder="Enter width" step="any">
+        <label for="height">Height (meters):</label>
+        <input type="number" id="height" placeholder="Enter height" step="any">
+        <button onclick="calculateCBM()">Calculate CBM</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateCBM() {
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+            const height = parseFloat(document.getElementById('height').value);
+            
+            if (isNaN(length) || isNaN(width) || isNaN(height)) {
+                alert("Please enter valid numbers for length, width, and height.");
+                return;
+            }
+
+            const cbm = length * width * height;
+            document.getElementById('result').innerText = `Volume: ${cbm.toFixed(3)} cubic meters`;
+        }
+    </script>
+</body>
+</html>
